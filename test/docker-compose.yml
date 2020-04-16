@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web-1:
+    image: nginxdemos/hello
+    ports:
+        - 80:80
+    restart: unless-stopped
+    labels:
+        aggregate-logs: "true"
+  web-2:
+      image: nginxdemos/hello
+      ports:
+          - 81:80
+      restart: unless-stopped
+  web-3:
+    image: nginx
+    ports:
+        - 82:80
+    restart: unless-stopped
+    labels:
+        aggregate-logs: "true"
